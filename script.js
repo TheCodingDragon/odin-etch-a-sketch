@@ -1,18 +1,34 @@
 const pad = document.querySelector(".pad");
-let size = 64;
+const btn = document.querySelector(".size");
+const MAX_SIZE = 100;
+let size = 16;
 
-for (let i = 0; i < size * size; i++) {
-    const box = document.createElement("div");
-    box.addEventListener("mouseover", function () {
-        box.style.backgroundColor = "#222";
-    });
+renderGrid();
 
-    let conversion = 960 / size;
+btn.addEventListener("click", function () {
+    size = parseInt(prompt("Enter a number from 1 - 100: "));
+    if (size <= MAX_SIZE) {
+        pad.innerHTML = "";
+        btn.innerHTML = `Change Grid Size: ${size}`;
+        renderGrid();
+    }
+});
 
-    box.style.height = `${conversion}px`;
-    box.style.minWidth = `${conversion}px`;
-    box.style.border = "solid #222"
-    box.style.borderWidth = "0 1px 1px 0px";
-    pad.append(box);
+
+
+function renderGrid() {
+    for (let i = 0; i < size * size; i++) {
+        const box = document.createElement("div");
+        box.addEventListener("mouseover", function () {
+            box.style.backgroundColor = "#222";
+        });
+
+        let conversion = 960 / size;
+
+        box.style.height = `${conversion}px`;
+        box.style.minWidth = `${conversion}px`;
+        box.style.border = "solid #222"
+        box.style.borderWidth = "0 1px 1px 0px";
+        pad.append(box);
+    }
 }
-

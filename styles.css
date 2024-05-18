@@ -12,8 +12,18 @@ h1 {
 .container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     width: 961px;
     margin: 80px auto;
+}
+
+.container button.size {
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    border-radius: 10px;
 }
 
 .pad {
