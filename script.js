@@ -3,6 +3,10 @@ const pad = document.querySelector(".pad");
 
 for (let i = 0; i < 16 * 16; i++) {
     const box = document.createElement("div");
+    box.addEventListener("mouseover", function () {
+        box.style.backgroundColor = "#222";
+    });
+
     box.style.height = "60px";
     box.style.minWidth = "60px";
     box.style.border = "solid #222"
