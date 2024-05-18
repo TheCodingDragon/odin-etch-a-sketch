@@ -18,18 +18,21 @@ btn.addEventListener("click", function () {
 
 function renderGrid() {
 
+
     function getRandomColor() {
-        const r = Math.floor(Math.random() * 255);
-        const g = Math.floor(Math.random() * 255);
-        const b = Math.floor(Math.random() * 255);
-        return `RGB(${r}, ${g}, ${b}`;
+        const hue = Math.floor(Math.random() * 360);
+        const sat = Math.floor(Math.random() * 100);
+        return [hue, sat];
     }
 
     for (let i = 0; i < size * size; i++) {
         const box = document.createElement("div");
+        let dim = 50;
         box.addEventListener("mouseover", function () {
+            let color = getRandomColor();
+            dim -= 5;
+            box.style.backgroundColor = `HSL(${color[0]}, ${color[1]}%, ${dim}%)`;
 
-            box.style.backgroundColor = getRandomColor();
         });
 
         let conversion = 960 / size;
